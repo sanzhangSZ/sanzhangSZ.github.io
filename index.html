@@ -3,110 +3,576 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>flora.is-a.dev</title>
+    <title>Flora | flora.is-a.dev</title>
     <meta
       name="description"
-      content="Placeholder personal site for flora.is-a.dev."
+      content="Flora is a software developer building practical web tools, polished interfaces, and maintainable products."
     />
     <style>
       :root {
         color-scheme: light;
-        --bg: #f6efe6;
-        --panel: rgba(255, 252, 247, 0.82);
-        --text: #1e1b18;
-        --muted: #665f58;
-        --accent: #bd4f27;
-        --accent-soft: #f4c9a8;
-        --border: rgba(30, 27, 24, 0.08);
-        --shadow: 0 18px 45px rgba(90, 55, 31, 0.12);
+        --bg: #f3eadf;
+        --bg-deep: #e6d8c6;
+        --paper: rgba(255, 251, 246, 0.88);
+        --paper-strong: rgba(255, 248, 240, 0.96);
+        --text: #221d18;
+        --muted: #65584d;
+        --accent: #b4522a;
+        --accent-soft: #efc39f;
+        --line: rgba(34, 29, 24, 0.09);
+        --shadow: 0 24px 60px rgba(104, 67, 41, 0.14);
+        --radius-xl: 30px;
+        --radius-lg: 22px;
+        --radius-md: 16px;
       }
 
       * {
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
-        min-height: 100vh;
         font-family: Georgia, "Times New Roman", serif;
         color: var(--text);
         background:
-          radial-gradient(circle at top left, rgba(244, 201, 168, 0.85), transparent 36%),
-          radial-gradient(circle at bottom right, rgba(189, 79, 39, 0.18), transparent 32%),
-          linear-gradient(135deg, #f8f3ea, var(--bg));
-        display: grid;
-        place-items: center;
-        padding: 24px;
+          radial-gradient(circle at top left, rgba(239, 195, 159, 0.88), transparent 30%),
+          radial-gradient(circle at 85% 15%, rgba(180, 82, 42, 0.14), transparent 22%),
+          radial-gradient(circle at bottom right, rgba(230, 216, 198, 0.92), transparent 28%),
+          linear-gradient(135deg, #faf4ec, var(--bg));
       }
 
-      main {
-        width: min(760px, 100%);
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 28px;
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        width: min(1120px, calc(100% - 32px));
+        margin: 24px auto 56px;
+      }
+
+      .shell {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xl);
         box-shadow: var(--shadow);
-        padding: 48px 28px;
         backdrop-filter: blur(10px);
+        overflow: hidden;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 18px 24px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(255, 253, 250, 0.72);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        font: 700 1.1rem/1 Arial, sans-serif;
+        color: white;
+        background: linear-gradient(135deg, var(--accent), #d27644);
+      }
+
+      .brand-copy strong,
+      .section h2,
+      .project h3,
+      .card-title {
+        font-family: Arial, sans-serif;
+      }
+
+      .brand-copy strong {
+        display: block;
+        font-size: 0.98rem;
+      }
+
+      .brand-copy span,
+      .nav a,
+      .meta,
+      .tag,
+      .project p,
+      .about-list li,
+      .timeline li,
+      .footer-note {
+        font-family: Arial, sans-serif;
+      }
+
+      .brand-copy span {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .nav a {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.3fr 0.9fr;
+        gap: 28px;
+        padding: 32px 24px 24px;
+      }
+
+      .hero-panel,
+      .stack,
+      .project,
+      .timeline,
+      .about-panel,
+      .contact-card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        background: var(--paper-strong);
+      }
+
+      .hero-panel {
+        padding: 34px 30px;
+        min-height: 100%;
       }
 
       .eyebrow {
-        margin: 0 0 16px;
-        font: 600 0.82rem/1.2 Arial, sans-serif;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
+        margin: 0 0 14px;
         color: var(--accent);
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font: 700 0.8rem/1.2 Arial, sans-serif;
       }
 
       h1 {
         margin: 0;
-        font-size: clamp(2.6rem, 8vw, 5rem);
-        line-height: 0.95;
+        font-size: clamp(3rem, 7vw, 5.8rem);
+        line-height: 0.92;
       }
 
-      p {
-        margin: 18px 0 0;
-        max-width: 42rem;
-        font-size: 1.08rem;
-        line-height: 1.75;
+      .lead {
+        margin: 22px 0 0;
+        max-width: 36rem;
         color: var(--muted);
+        font-size: 1.1rem;
+        line-height: 1.8;
       }
 
-      .card {
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
         margin-top: 28px;
-        padding: 18px 20px;
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.6);
-        border: 1px solid rgba(30, 27, 24, 0.06);
       }
 
-      .card strong {
+      .button,
+      .button-secondary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        border-radius: 999px;
+        font: 600 0.95rem/1 Arial, sans-serif;
+      }
+
+      .button {
+        color: white;
+        background: linear-gradient(135deg, var(--accent), #d06d3d);
+      }
+
+      .button-secondary {
+        color: var(--text);
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.7);
+      }
+
+      .hero-side {
+        display: grid;
+        gap: 18px;
+      }
+
+      .stack {
+        padding: 24px 22px;
+      }
+
+      .card-title {
+        margin: 0 0 16px;
+        font-size: 1rem;
+      }
+
+      .meta {
+        display: grid;
+        gap: 12px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .meta strong {
+        display: block;
+        margin-bottom: 4px;
         color: var(--text);
       }
 
-      a {
-        color: var(--accent);
+      .section {
+        padding: 8px 24px 24px;
+      }
+
+      .section h2 {
+        margin: 0 0 18px;
+        font-size: 1.05rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .grid-two {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+
+      .about-panel,
+      .timeline,
+      .contact-card {
+        padding: 24px 22px;
+      }
+
+      .about-text {
+        margin: 0;
+        color: var(--muted);
+        font: 400 1rem/1.85 Arial, sans-serif;
+      }
+
+      .about-list,
+      .timeline ul {
+        margin: 16px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .about-list li,
+      .timeline li {
+        color: var(--muted);
+        line-height: 1.7;
+        padding: 10px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .project {
+        padding: 22px;
+      }
+
+      .project h3 {
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      .project p {
+        margin: 12px 0 0;
+        color: var(--muted);
+        font-size: 0.96rem;
+        line-height: 1.75;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .tag {
+        padding: 7px 11px;
+        border-radius: 999px;
+        font-size: 0.82rem;
+        color: var(--muted);
+        background: rgba(239, 195, 159, 0.28);
+        border: 1px solid rgba(180, 82, 42, 0.12);
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 18px;
+      }
+
+      .contact-card p {
+        margin: 0;
+        color: var(--muted);
+        font: 400 0.97rem/1.75 Arial, sans-serif;
+      }
+
+      .contact-links {
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .contact-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 14px 16px;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.58);
+        font: 600 0.93rem/1.3 Arial, sans-serif;
+      }
+
+      .footer-note {
+        padding: 8px 24px 28px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 920px) {
+        .hero,
+        .grid-two,
+        .projects,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (max-width: 640px) {
-        main {
-          padding: 36px 22px;
-          border-radius: 22px;
+        .page {
+          width: min(100% - 18px, 1120px);
+          margin: 10px auto 28px;
+        }
+
+        .topbar,
+        .hero,
+        .section,
+        .footer-note {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        .hero-panel,
+        .stack,
+        .about-panel,
+        .timeline,
+        .project,
+        .contact-card {
+          padding: 20px 18px;
+        }
+
+        .nav {
+          display: none;
         }
       }
     </style>
   </head>
   <body>
-    <main>
-      <p class="eyebrow">Software Developer</p>
-      <h1>Flora</h1>
-      <p>
-        This is a temporary landing page for <strong>flora.is-a.dev</strong>.
-        A full personal site is being prepared and will be published here soon.
-      </p>
-      <div class="card">
-        <strong>GitHub:</strong>
-        <a href="https://github.com/sanzhangSZ">github.com/sanzhangSZ</a>
+    <div class="page">
+      <div class="shell">
+        <header class="topbar">
+          <div class="brand">
+            <div class="brand-mark">F</div>
+            <div class="brand-copy">
+              <strong>Flora</strong>
+              <span>Builder of practical web products</span>
+            </div>
+          </div>
+          <nav class="nav">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </header>
+
+        <section class="hero">
+          <div class="hero-panel">
+            <p class="eyebrow">Software Developer</p>
+            <h1>Flora</h1>
+            <p class="lead">
+              I design and build clean, useful websites and internal tools with
+              a strong bias toward clarity, maintainability, and calm user
+              experience. I enjoy turning rough ideas into polished products
+              that solve real workflow problems.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="https://github.com/sanzhangSZ">View GitHub</a>
+              <a class="button-secondary" href="#projects">See Project Focus</a>
+            </div>
+          </div>
+
+          <div class="hero-side">
+            <aside class="stack">
+              <h2 class="card-title">Current Focus</h2>
+              <div class="meta">
+                <div>
+                  <strong>Frontend</strong>
+                  Modern HTML, CSS, JavaScript, responsive interfaces
+                </div>
+                <div>
+                  <strong>Product Style</strong>
+                  Simple architecture, readable UI, practical delivery
+                </div>
+                <div>
+                  <strong>Interests</strong>
+                  Developer tools, dashboard design, automation, personal sites
+                </div>
+              </div>
+            </aside>
+
+            <aside class="stack">
+              <h2 class="card-title">Site</h2>
+              <div class="meta">
+                <div>
+                  <strong>Website</strong>
+                  flora.is-a.dev
+                </div>
+                <div>
+                  <strong>GitHub</strong>
+                  github.com/sanzhangSZ
+                </div>
+                <div>
+                  <strong>Status</strong>
+                  Open to building and refining new ideas
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section" id="about">
+          <div class="grid-two">
+            <div class="about-panel">
+              <h2>About</h2>
+              <p class="about-text">
+                I am a developer interested in building straightforward digital
+                products that are pleasant to use and easy to extend. My work
+                tends to focus on the details that make software feel solid:
+                structure, consistency, sensible defaults, and careful visual
+                presentation.
+              </p>
+              <ul class="about-list">
+                <li>I like shipping small, usable tools instead of overcomplicated systems.</li>
+                <li>I value clean interfaces, clear content hierarchy, and maintainable code.</li>
+                <li>I am currently growing my portfolio around web development and product-focused UI work.</li>
+              </ul>
+            </div>
+
+            <div class="timeline">
+              <h2>What I Work On</h2>
+              <ul>
+                <li>Landing pages and personal websites with strong visual identity.</li>
+                <li>Operational dashboards that surface the right information quickly.</li>
+                <li>Internal tools that reduce repetitive manual work.</li>
+                <li>Small web experiments that improve workflow and communication.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="projects">
+          <h2>Project Focus</h2>
+          <div class="projects">
+            <article class="project">
+              <h3>Personal Publishing Space</h3>
+              <p>
+                A clean home for notes, project write-ups, and technical
+                reflections. The emphasis is on readable typography, careful
+                structure, and low-friction publishing.
+              </p>
+              <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">Content Design</span>
+              </div>
+            </article>
+
+            <article class="project">
+              <h3>Workflow Dashboard Concepts</h3>
+              <p>
+                Interface concepts for tracking tasks, service status, and
+                project progress without clutter. Built around clear layouts and
+                practical information density.
+              </p>
+              <div class="tags">
+                <span class="tag">UI Systems</span>
+                <span class="tag">Dashboards</span>
+                <span class="tag">Data Views</span>
+              </div>
+            </article>
+
+            <article class="project">
+              <h3>Small Automation Utilities</h3>
+              <p>
+                Lightweight tools for simplifying repetitive work, collecting
+                information, and improving day-to-day efficiency in software
+                projects.
+              </p>
+              <div class="tags">
+                <span class="tag">Tooling</span>
+                <span class="tag">Automation</span>
+                <span class="tag">Productivity</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="contact">
+          <div class="contact-grid">
+            <div class="contact-card">
+              <h2>Contact</h2>
+              <p>
+                The best place to find my work right now is GitHub. This site
+                will continue to expand with project pages, notes, and more
+                detailed case studies.
+              </p>
+              <div class="contact-links">
+                <a class="contact-link" href="https://github.com/sanzhangSZ">
+                  <span>GitHub</span>
+                  <span>github.com/sanzhangSZ</span>
+                </a>
+                <a class="contact-link" href="mailto:19921267869@163.com">
+                  <span>Email</span>
+                  <span>19921267869@163.com</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <h2>Next</h2>
+              <p>
+                Planned updates include project breakdowns, a stronger visual
+                archive, and a more detailed summary of the tools and workflows
+                I use while building on the web.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <div class="footer-note">
+          Built and deployed with GitHub Pages.
+        </div>
       </div>
-    </main>
+    </div>
   </body>
 </html>
