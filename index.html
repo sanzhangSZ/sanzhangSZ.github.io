@@ -6,21 +6,20 @@
     <title>Flora | flora.is-a.dev</title>
     <meta
       name="description"
-      content="Flora is a software developer building practical web tools, polished interfaces, and maintainable products."
+      content="Flora is a software developer focused on practical web products, clean interfaces, and maintainable delivery."
     />
     <style>
       :root {
         color-scheme: light;
-        --bg: #f3eadf;
-        --bg-deep: #e6d8c6;
-        --paper: rgba(255, 251, 246, 0.88);
-        --paper-strong: rgba(255, 248, 240, 0.96);
-        --text: #221d18;
-        --muted: #65584d;
-        --accent: #b4522a;
-        --accent-soft: #efc39f;
-        --line: rgba(34, 29, 24, 0.09);
-        --shadow: 0 24px 60px rgba(104, 67, 41, 0.14);
+        --bg: #f5ecdf;
+        --ink: #231d17;
+        --muted: #67594c;
+        --surface: rgba(255, 251, 245, 0.88);
+        --surface-strong: rgba(255, 248, 240, 0.96);
+        --accent: #b44f28;
+        --accent-soft: #efc5a4;
+        --line: rgba(35, 29, 23, 0.09);
+        --shadow: 0 24px 64px rgba(108, 70, 43, 0.14);
         --radius-xl: 30px;
         --radius-lg: 22px;
         --radius-md: 16px;
@@ -37,12 +36,12 @@
       body {
         margin: 0;
         font-family: Georgia, "Times New Roman", serif;
-        color: var(--text);
+        color: var(--ink);
         background:
-          radial-gradient(circle at top left, rgba(239, 195, 159, 0.88), transparent 30%),
-          radial-gradient(circle at 85% 15%, rgba(180, 82, 42, 0.14), transparent 22%),
-          radial-gradient(circle at bottom right, rgba(230, 216, 198, 0.92), transparent 28%),
-          linear-gradient(135deg, #faf4ec, var(--bg));
+          radial-gradient(circle at top left, rgba(239, 197, 164, 0.92), transparent 28%),
+          radial-gradient(circle at 82% 18%, rgba(180, 79, 40, 0.16), transparent 22%),
+          radial-gradient(circle at bottom right, rgba(214, 192, 164, 0.72), transparent 26%),
+          linear-gradient(135deg, #fbf5ed, var(--bg));
       }
 
       a {
@@ -51,12 +50,12 @@
       }
 
       .page {
-        width: min(1120px, calc(100% - 32px));
-        margin: 24px auto 56px;
+        width: min(1180px, calc(100% - 30px));
+        margin: 18px auto 48px;
       }
 
       .shell {
-        background: var(--paper);
+        background: var(--surface);
         border: 1px solid var(--line);
         border-radius: var(--radius-xl);
         box-shadow: var(--shadow);
@@ -68,10 +67,10 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 16px;
+        gap: 18px;
         padding: 18px 24px;
         border-bottom: 1px solid var(--line);
-        background: rgba(255, 253, 250, 0.72);
+        background: rgba(255, 253, 249, 0.72);
       }
 
       .brand {
@@ -81,35 +80,45 @@
       }
 
       .brand-mark {
-        width: 42px;
-        height: 42px;
-        border-radius: 14px;
+        width: 44px;
+        height: 44px;
         display: grid;
         place-items: center;
-        font: 700 1.1rem/1 Arial, sans-serif;
-        color: white;
-        background: linear-gradient(135deg, var(--accent), #d27644);
+        border-radius: 14px;
+        color: #fff;
+        font: 700 1.12rem/1 Arial, sans-serif;
+        background: linear-gradient(135deg, var(--accent), #d77a46);
       }
 
       .brand-copy strong,
-      .section h2,
-      .project h3,
-      .card-title {
+      .section-kicker,
+      .section-title,
+      .metric strong,
+      .case h3,
+      .mini-card h3,
+      .stack-card h3,
+      .footer-note {
         font-family: Arial, sans-serif;
       }
 
       .brand-copy strong {
         display: block;
-        font-size: 0.98rem;
+        font-size: 1rem;
       }
 
       .brand-copy span,
       .nav a,
-      .meta,
-      .tag,
-      .project p,
-      .about-list li,
-      .timeline li,
+      .hero-copy,
+      .metric span,
+      .button,
+      .button-secondary,
+      .stack-card p,
+      .label,
+      .capability,
+      .case p,
+      .case li,
+      .mini-card p,
+      .contact-link,
       .footer-note {
         font-family: Arial, sans-serif;
       }
@@ -132,53 +141,65 @@
 
       .hero {
         display: grid;
-        grid-template-columns: 1.3fr 0.9fr;
-        gap: 28px;
-        padding: 32px 24px 24px;
+        grid-template-columns: 1.25fr 0.85fr;
+        gap: 22px;
+        padding: 24px;
       }
 
-      .hero-panel,
-      .stack,
-      .project,
-      .timeline,
-      .about-panel,
+      .hero-main,
+      .hero-side,
+      .case,
+      .mini-card,
+      .stack-card,
       .contact-card {
         border: 1px solid var(--line);
         border-radius: var(--radius-lg);
-        background: var(--paper-strong);
+        background: var(--surface-strong);
       }
 
-      .hero-panel {
+      .hero-main {
         padding: 34px 30px;
-        min-height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-main::after {
+        content: "";
+        position: absolute;
+        width: 220px;
+        height: 220px;
+        right: -40px;
+        top: -40px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(239, 197, 164, 0.5), transparent 70%);
       }
 
       .eyebrow {
         margin: 0 0 14px;
         color: var(--accent);
-        letter-spacing: 0.16em;
+        font: 700 0.82rem/1.2 Arial, sans-serif;
         text-transform: uppercase;
-        font: 700 0.8rem/1.2 Arial, sans-serif;
+        letter-spacing: 0.16em;
       }
 
       h1 {
         margin: 0;
-        font-size: clamp(3rem, 7vw, 5.8rem);
+        font-size: clamp(3rem, 7vw, 6rem);
         line-height: 0.92;
       }
 
-      .lead {
+      .hero-copy {
         margin: 22px 0 0;
-        max-width: 36rem;
+        max-width: 39rem;
         color: var(--muted);
-        font-size: 1.1rem;
-        line-height: 1.8;
+        font-size: 1.08rem;
+        line-height: 1.9;
       }
 
       .hero-actions {
         display: flex;
         flex-wrap: wrap;
-        gap: 14px;
+        gap: 12px;
         margin-top: 28px;
       }
 
@@ -190,139 +211,212 @@
         min-height: 46px;
         padding: 0 18px;
         border-radius: 999px;
-        font: 600 0.95rem/1 Arial, sans-serif;
+        font-size: 0.95rem;
+        font-weight: 600;
       }
 
       .button {
-        color: white;
-        background: linear-gradient(135deg, var(--accent), #d06d3d);
+        color: #fff;
+        background: linear-gradient(135deg, var(--accent), #d06c3b);
       }
 
       .button-secondary {
-        color: var(--text);
         border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.7);
+        background: rgba(255, 255, 255, 0.75);
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .metric {
+        padding: 16px;
+        border-radius: var(--radius-md);
+        background: rgba(255, 255, 255, 0.64);
+        border: 1px solid var(--line);
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 1.35rem;
+        margin-bottom: 6px;
+      }
+
+      .metric span {
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.5;
       }
 
       .hero-side {
         display: grid;
-        gap: 18px;
+        gap: 16px;
+        padding: 18px;
       }
 
-      .stack {
-        padding: 24px 22px;
+      .stack-card {
+        padding: 18px;
       }
 
-      .card-title {
-        margin: 0 0 16px;
+      .stack-card h3 {
+        margin: 0 0 12px;
         font-size: 1rem;
       }
 
-      .meta {
-        display: grid;
-        gap: 12px;
-        color: var(--muted);
-        font-size: 0.95rem;
-      }
-
-      .meta strong {
-        display: block;
-        margin-bottom: 4px;
-        color: var(--text);
-      }
-
-      .section {
-        padding: 8px 24px 24px;
-      }
-
-      .section h2 {
-        margin: 0 0 18px;
-        font-size: 1.05rem;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-      }
-
-      .grid-two {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 18px;
-      }
-
-      .about-panel,
-      .timeline,
-      .contact-card {
-        padding: 24px 22px;
-      }
-
-      .about-text {
+      .stack-card p {
         margin: 0;
         color: var(--muted);
-        font: 400 1rem/1.85 Arial, sans-serif;
-      }
-
-      .about-list,
-      .timeline ul {
-        margin: 16px 0 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      .about-list li,
-      .timeline li {
-        color: var(--muted);
-        line-height: 1.7;
-        padding: 10px 0;
-        border-top: 1px solid var(--line);
-      }
-
-      .projects {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 18px;
-      }
-
-      .project {
-        padding: 22px;
-      }
-
-      .project h3 {
-        margin: 0;
-        font-size: 1rem;
-      }
-
-      .project p {
-        margin: 12px 0 0;
-        color: var(--muted);
-        font-size: 0.96rem;
         line-height: 1.75;
+        font-size: 0.95rem;
       }
 
       .tags {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
-        margin-top: 16px;
+        margin-top: 14px;
       }
 
-      .tag {
-        padding: 7px 11px;
+      .label,
+      .capability {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 11px;
         border-radius: 999px;
         font-size: 0.82rem;
-        color: var(--muted);
-        background: rgba(239, 195, 159, 0.28);
-        border: 1px solid rgba(180, 82, 42, 0.12);
       }
 
-      .contact-grid {
+      .label {
+        color: var(--muted);
+        background: rgba(239, 197, 164, 0.32);
+        border: 1px solid rgba(180, 79, 40, 0.12);
+      }
+
+      .capability {
+        color: var(--ink);
+        background: rgba(255, 255, 255, 0.76);
+        border: 1px solid var(--line);
+      }
+
+      .section {
+        padding: 4px 24px 24px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 18px;
+      }
+
+      .section-kicker {
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.78rem;
+        margin: 0 0 6px;
+      }
+
+      .section-title {
+        margin: 0;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .section-note {
+        color: var(--muted);
+        font: 400 0.94rem/1.6 Arial, sans-serif;
+        max-width: 28rem;
+        margin: 0;
+      }
+
+      .cases {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .case {
+        padding: 22px;
+      }
+
+      .case h3 {
+        margin: 0 0 12px;
+        font-size: 1rem;
+      }
+
+      .case p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.78;
+      }
+
+      .case ul {
+        list-style: none;
+        margin: 16px 0 0;
+        padding: 0;
+      }
+
+      .case li {
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.65;
+        padding: 8px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .split {
         display: grid;
         grid-template-columns: 1.1fr 0.9fr;
         gap: 18px;
       }
 
+      .mini-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+
+      .mini-card,
+      .contact-card {
+        padding: 22px;
+      }
+
+      .mini-card h3 {
+        margin: 0 0 12px;
+        font-size: 0.98rem;
+      }
+
+      .mini-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.78;
+      }
+
+      .list {
+        list-style: none;
+        padding: 0;
+        margin: 14px 0 0;
+      }
+
+      .list li {
+        color: var(--muted);
+        font: 400 0.92rem/1.65 Arial, sans-serif;
+        padding: 10px 0;
+        border-top: 1px solid var(--line);
+      }
+
       .contact-card p {
         margin: 0;
         color: var(--muted);
-        font: 400 0.97rem/1.75 Arial, sans-serif;
+        font: 400 0.96rem/1.8 Arial, sans-serif;
       }
 
       .contact-links {
@@ -337,31 +431,31 @@
         justify-content: space-between;
         gap: 12px;
         padding: 14px 16px;
-        border-radius: var(--radius-md);
         border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.58);
-        font: 600 0.93rem/1.3 Arial, sans-serif;
+        border-radius: var(--radius-md);
+        background: rgba(255, 255, 255, 0.68);
+        font-size: 0.92rem;
+        font-weight: 600;
       }
 
       .footer-note {
-        padding: 8px 24px 28px;
+        padding: 6px 24px 28px;
         color: var(--muted);
         font-size: 0.9rem;
       }
 
-      @media (max-width: 920px) {
+      @media (max-width: 980px) {
         .hero,
-        .grid-two,
-        .projects,
-        .contact-grid {
+        .cases,
+        .split,
+        .mini-grid {
           grid-template-columns: 1fr;
         }
       }
 
-      @media (max-width: 640px) {
-        .page {
-          width: min(100% - 18px, 1120px);
-          margin: 10px auto 28px;
+      @media (max-width: 720px) {
+        .metrics {
+          grid-template-columns: 1fr;
         }
 
         .topbar,
@@ -372,17 +466,21 @@
           padding-right: 16px;
         }
 
-        .hero-panel,
-        .stack,
-        .about-panel,
-        .timeline,
-        .project,
+        .hero-main,
+        .hero-side,
+        .case,
+        .mini-card,
+        .stack-card,
         .contact-card {
-          padding: 20px 18px;
+          padding: 18px;
         }
 
         .nav {
           display: none;
+        }
+
+        .page {
+          width: min(100% - 16px, 1180px);
         }
       }
     </style>
@@ -395,156 +493,218 @@
             <div class="brand-mark">F</div>
             <div class="brand-copy">
               <strong>Flora</strong>
-              <span>Builder of practical web products</span>
+              <span>Web builder focused on practical product work</span>
             </div>
           </div>
           <nav class="nav">
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
+            <a href="#work">Work</a>
+            <a href="#approach">Approach</a>
             <a href="#contact">Contact</a>
           </nav>
         </header>
 
         <section class="hero">
-          <div class="hero-panel">
+          <div class="hero-main">
             <p class="eyebrow">Software Developer</p>
             <h1>Flora</h1>
-            <p class="lead">
-              I design and build clean, useful websites and internal tools with
-              a strong bias toward clarity, maintainability, and calm user
-              experience. I enjoy turning rough ideas into polished products
-              that solve real workflow problems.
+            <p class="hero-copy">
+              I build websites and product surfaces that feel intentional, stay
+              readable under growth, and help people move through information
+              without friction. My interests sit between interface design,
+              web implementation, and small tools that make everyday work
+              clearer.
             </p>
             <div class="hero-actions">
-              <a class="button" href="https://github.com/sanzhangSZ">View GitHub</a>
-              <a class="button-secondary" href="#projects">See Project Focus</a>
+              <a class="button" href="https://github.com/sanzhangSZ">Explore GitHub</a>
+              <a class="button-secondary" href="#work">View Focus Areas</a>
+            </div>
+            <div class="metrics">
+              <div class="metric">
+                <strong>UI</strong>
+                <span>Clean layouts, content hierarchy, responsive polish</span>
+              </div>
+              <div class="metric">
+                <strong>Web</strong>
+                <span>HTML, CSS, JavaScript, lightweight delivery</span>
+              </div>
+              <div class="metric">
+                <strong>Tools</strong>
+                <span>Dashboards, workflow helpers, practical automation</span>
+              </div>
             </div>
           </div>
 
-          <div class="hero-side">
-            <aside class="stack">
-              <h2 class="card-title">Current Focus</h2>
-              <div class="meta">
-                <div>
-                  <strong>Frontend</strong>
-                  Modern HTML, CSS, JavaScript, responsive interfaces
-                </div>
-                <div>
-                  <strong>Product Style</strong>
-                  Simple architecture, readable UI, practical delivery
-                </div>
-                <div>
-                  <strong>Interests</strong>
-                  Developer tools, dashboard design, automation, personal sites
-                </div>
-              </div>
-            </aside>
-
-            <aside class="stack">
-              <h2 class="card-title">Site</h2>
-              <div class="meta">
-                <div>
-                  <strong>Website</strong>
-                  flora.is-a.dev
-                </div>
-                <div>
-                  <strong>GitHub</strong>
-                  github.com/sanzhangSZ
-                </div>
-                <div>
-                  <strong>Status</strong>
-                  Open to building and refining new ideas
-                </div>
-              </div>
-            </aside>
-          </div>
-        </section>
-
-        <section class="section" id="about">
-          <div class="grid-two">
-            <div class="about-panel">
-              <h2>About</h2>
-              <p class="about-text">
-                I am a developer interested in building straightforward digital
-                products that are pleasant to use and easy to extend. My work
-                tends to focus on the details that make software feel solid:
-                structure, consistency, sensible defaults, and careful visual
-                presentation.
+          <aside class="hero-side">
+            <div class="stack-card">
+              <h3>Current Focus</h3>
+              <p>
+                Building a portfolio around useful web products, internal
+                dashboards, and clear developer-facing experiences.
               </p>
-              <ul class="about-list">
-                <li>I like shipping small, usable tools instead of overcomplicated systems.</li>
-                <li>I value clean interfaces, clear content hierarchy, and maintainable code.</li>
-                <li>I am currently growing my portfolio around web development and product-focused UI work.</li>
-              </ul>
+              <div class="tags">
+                <span class="capability">Frontend Craft</span>
+                <span class="capability">Dashboard Design</span>
+                <span class="capability">Workflow Tools</span>
+              </div>
             </div>
-
-            <div class="timeline">
-              <h2>What I Work On</h2>
-              <ul>
-                <li>Landing pages and personal websites with strong visual identity.</li>
-                <li>Operational dashboards that surface the right information quickly.</li>
-                <li>Internal tools that reduce repetitive manual work.</li>
-                <li>Small web experiments that improve workflow and communication.</li>
-              </ul>
+            <div class="stack-card">
+              <h3>Working Style</h3>
+              <p>
+                I prefer calm interfaces, straightforward architecture, and
+                maintainable scope over unnecessary complexity.
+              </p>
             </div>
-          </div>
+            <div class="stack-card">
+              <h3>Base</h3>
+              <p>
+                This site is deployed through GitHub Pages and will keep
+                growing with project notes, breakdowns, and new experiments.
+              </p>
+            </div>
+          </aside>
         </section>
 
-        <section class="section" id="projects">
-          <h2>Project Focus</h2>
-          <div class="projects">
-            <article class="project">
+        <section class="section" id="work">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Selected Direction</p>
+              <h2 class="section-title">Work Themes</h2>
+            </div>
+            <p class="section-note">
+              These are the kinds of products and surfaces I want this site to
+              represent as the portfolio expands.
+            </p>
+          </div>
+          <div class="cases">
+            <article class="case">
               <h3>Personal Publishing Space</h3>
               <p>
-                A clean home for notes, project write-ups, and technical
-                reflections. The emphasis is on readable typography, careful
-                structure, and low-friction publishing.
+                A home for technical notes, product thinking, and small build
+                logs with an emphasis on typography, rhythm, and low-friction
+                reading.
               </p>
               <div class="tags">
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">Content Design</span>
+                <span class="label">Content Systems</span>
+                <span class="label">Static Sites</span>
               </div>
+              <ul>
+                <li>Readable article layouts</li>
+                <li>Simple publishing workflow</li>
+                <li>Clear archive structure</li>
+              </ul>
             </article>
-
-            <article class="project">
-              <h3>Workflow Dashboard Concepts</h3>
+            <article class="case">
+              <h3>Operations Dashboard Concepts</h3>
               <p>
-                Interface concepts for tracking tasks, service status, and
-                project progress without clutter. Built around clear layouts and
-                practical information density.
+                Interfaces that turn noisy operational data into a screen that
+                supports decisions quickly, especially for daily monitoring and
+                service visibility.
               </p>
               <div class="tags">
-                <span class="tag">UI Systems</span>
-                <span class="tag">Dashboards</span>
-                <span class="tag">Data Views</span>
+                <span class="label">Dashboards</span>
+                <span class="label">Information Design</span>
               </div>
+              <ul>
+                <li>Status-first layouts</li>
+                <li>Useful density without clutter</li>
+                <li>Responsive admin surfaces</li>
+              </ul>
             </article>
-
-            <article class="project">
+            <article class="case">
               <h3>Small Automation Utilities</h3>
               <p>
-                Lightweight tools for simplifying repetitive work, collecting
-                information, and improving day-to-day efficiency in software
-                projects.
+                Lightweight tools that reduce repetitive work and improve team
+                workflows through practical scripting, forms, and self-serve
+                interfaces.
               </p>
               <div class="tags">
-                <span class="tag">Tooling</span>
-                <span class="tag">Automation</span>
-                <span class="tag">Productivity</span>
+                <span class="label">Automation</span>
+                <span class="label">Productivity</span>
               </div>
+              <ul>
+                <li>Fast internal utilities</li>
+                <li>Task simplification</li>
+                <li>Low-overhead deployment</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="approach">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">How I Build</p>
+              <h2 class="section-title">Approach</h2>
+            </div>
+            <p class="section-note">
+              I care most about making software understandable to use and easy
+              to extend after the first version ships.
+            </p>
+          </div>
+          <div class="split">
+            <div class="mini-grid">
+              <article class="mini-card">
+                <h3>Interface Principles</h3>
+                <p>
+                  Strong hierarchy, minimal visual noise, and layouts that help
+                  people understand what matters first.
+                </p>
+                <ul class="list">
+                  <li>Readable screens before decorative complexity</li>
+                  <li>Intentional spacing and component rhythm</li>
+                  <li>Mobile-friendly behavior by default</li>
+                </ul>
+              </article>
+              <article class="mini-card">
+                <h3>Engineering Principles</h3>
+                <p>
+                  I favor solutions that are simple to reason about, easy to
+                  maintain, and practical to ship without ceremony.
+                </p>
+                <ul class="list">
+                  <li>Clear structure over clever abstraction</li>
+                  <li>Small scope with visible outcomes</li>
+                  <li>Static-first deployment where possible</li>
+                </ul>
+              </article>
+            </div>
+            <article class="contact-card">
+              <h2 class="section-title">Skill Snapshot</h2>
+              <div class="tags">
+                <span class="capability">HTML</span>
+                <span class="capability">CSS</span>
+                <span class="capability">JavaScript</span>
+                <span class="capability">Responsive UI</span>
+                <span class="capability">GitHub Pages</span>
+                <span class="capability">Static Delivery</span>
+                <span class="capability">Dashboard Layouts</span>
+                <span class="capability">Developer Tooling</span>
+              </div>
+              <p style="margin-top: 18px;">
+                This portfolio is intentionally lightweight: easy to publish,
+                easy to update, and ready to grow as new work appears.
+              </p>
             </article>
           </div>
         </section>
 
         <section class="section" id="contact">
-          <div class="contact-grid">
-            <div class="contact-card">
-              <h2>Contact</h2>
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Contact</p>
+              <h2 class="section-title">Find Me</h2>
+            </div>
+            <p class="section-note">
+              The site is still growing, but the easiest way to follow new work
+              right now is through GitHub.
+            </p>
+          </div>
+          <div class="split">
+            <article class="contact-card">
               <p>
-                The best place to find my work right now is GitHub. This site
-                will continue to expand with project pages, notes, and more
-                detailed case studies.
+                I am using this space to collect experiments, interface studies,
+                and practical software work. Over time, this site will expand
+                into a fuller archive of projects and write-ups.
               </p>
               <div class="contact-links">
                 <a class="contact-link" href="https://github.com/sanzhangSZ">
@@ -556,22 +716,21 @@
                   <span>19921267869@163.com</span>
                 </a>
               </div>
-            </div>
-
-            <div class="contact-card">
-              <h2>Next</h2>
+            </article>
+            <article class="contact-card">
               <p>
-                Planned updates include project breakdowns, a stronger visual
-                archive, and a more detailed summary of the tools and workflows
-                I use while building on the web.
+                Planned next additions:
               </p>
-            </div>
+              <ul class="list">
+                <li>Detailed case studies with screenshots</li>
+                <li>A project archive with repository links</li>
+                <li>Short notes on design and engineering decisions</li>
+              </ul>
+            </article>
           </div>
         </section>
 
-        <div class="footer-note">
-          Built and deployed with GitHub Pages.
-        </div>
+        <div class="footer-note">Built and deployed with GitHub Pages.</div>
       </div>
     </div>
   </body>
